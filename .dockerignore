@@ -46,6 +46,7 @@ htmlcov/
 nosetests.xml
 coverage.xml
 tests/
+.pytest_cache/
 
 # Sphinx documentation
 docs/_build/
