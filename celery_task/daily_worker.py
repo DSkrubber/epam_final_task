@@ -10,7 +10,7 @@ celery = Celery("celery_task.daily_worker")
 celery.conf.beat_schedule = {
     "update_db_daily": {
         "task": "celery_task.daily_worker.daily_update",
-        "schedule": crontab(),
+        "schedule": crontab(minute=0, hour=0),
     },
 }
 celery.conf.timezone = "UTC"
