@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Stats</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body class="site">
+  <header class="site-header">
+    <h1>Weather statistics for selected city and time period</h1>
+    {% block index %} {% endblock %}
+  </header>
+    {% block content %} {% endblock %}
+<footer class="site-footer">
+    <h3>About</h3>
+    <hr>
+    <p>This is a simple website to gather some weather statistics for different cities.</p>
+  <p>Created by Dmitriy Chebotarev for EPAM SPB python summer'21 final task.</p>
+</footer>
+</body>
+</html>

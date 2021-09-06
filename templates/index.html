@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="weatherCard">
+    <form method="POST" action="/" class="weatherCard-form">
+        <img class="weatherPic" src="{{ url_for('static', filename='images/index_pic.jpg') }}" alt="weather">
+        {{ form.hidden_tag() }}
+        {{ form.city.label }}<br>
+        {{ form.city }}<br><br>
+        <label for="date_from">Report date from:</label><br>
+        <input type="date" id="date_from" name="date_from" min="2010-01-01" max= {{ today }} required><br><br>
+        <label for="date_until">Report date until:</label><br>
+        <input type="date" id="date_until" name="date_until" min="2010-01-01" max= {{ today }} required><br><br>
+        <input type="submit" value="Get statistic">
+    </form>
+</div>
+{% endblock %}

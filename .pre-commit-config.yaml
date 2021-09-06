@@ -1,0 +1,14 @@
+# Update rev via pre-commit autoupdate
+repos:
+-   repo: https://github.com/PyCQA/isort
+    rev: 5.9.3
+    hooks:
+    -   id: isort
+        args: [--check, .]
+        verbose: true
+-   repo: https://github.com/psf/black
+    rev: 21.8b0
+    hooks:
+    -   id: black
+        args: [--check, .]
+        verbose: true
