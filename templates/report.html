@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block index %}
+<p><a href="{{ url_for('index') }}">Back to main page</a></p>
+{% endblock %}
+{% block content %}
+<div id="weather_wrapper">
+  <div class="weatherCard">
+    <div class="city">
+      <img class="image-city" src="/static/images/{{ city }}.jpg" alt="{{ city }}">
+      <span class="location">{{ city }}</span>
+    </div>
+    <div class="paramTable">
+      <span class="table-info">For selected period:</span><br><hr>
+      <span class="param-icon">&#xf053;</span>
+      <span class="param-text">Average temperature:</span>
+      <span class="param-value">{{ params.avg_temp }} &#x2103</span><br><hr>
+      <span class="param-icon">&#xf055;</span>
+      <span class="param-text">Maximum temperature:</span>
+      <span class="param-value">{{ params.max_temp }} &#x2103</span><br><hr>
+      <span class="param-icon">&#xf054;</span>
+      <span class="param-text">Minimum temperature:</span>
+      <span class="param-value">{{ params.min_temp }} &#x2103</span><br><hr>
+      {% if params.years_max %}
+      <span class="param-icon">&#xf055;</span>
+      <span class="param-text">Average maximum temperature per years:</span>
+      {% for (year, max_temp) in params.years_max %}
+      <span class="param-value" style="float: right">{{ year }}: {{ max_temp }} &#x2103</span><br>
+      {% endfor %}
+      <hr>{% endif %}
+      {% if params.years_min %}
+      <span class="param-icon">&#xf054;</span>
+      <span class="param-text">Average minimum temperature per years:</span>
+      {% for (year, min_temp) in params.years_min %}
+      <span class="param-value">{{ year }}: {{ min_temp }} &#x2103</span><br>
+      {% endfor %}
+      <hr>{% endif %}
+      <span class="param-icon">&#xf03c;</span>
+      <span class="param-text">Days with closest to today temperatures:</span>
+      {% for date in params.date_temp %}
+      <span class="param-value">{{ date }}</span><br>
+      {% endfor %}<hr>
+      <span class="param-icon">&#xf00e;</span>
+      <span class="param-text">Days with precipitations:</span>
+      <span class="param-value">{{ params.precipitations }} %</span><br><hr>
+      <span class="param-icon">&#xf00d;</span>
+      <span class="param-text">Days without precipitations:</span>
+      <span class="param-value">{{ 100 - params.precipitations }} %</span><br><hr>
+      <span class="param-icon">&#xf010;</span>
+      <span class="param-text">Most common precipitations:</span>
+      {% for weather in params.common_weather %}
+      <span class="param-value">{{ weather }}</span><br>
+      {% endfor %}<hr>
+      <span class="param-icon">&#xf050;</span>
+      <span class="param-text">Average wind speed:</span>
+      <span class="param-value">{{ params.wind_speed }} m/sec</span><br><hr>
+      <span class="param-icon">&#xf014;</span>
+      <span class="param-text">Wind direction:</span>
+      <span class="param-icon" style="position:absolute; right:35px;">
+        &#xf{{ params.wind_codes[params.wind_dir] }};
+      </span>
+      <span class="param-value">{{ params.wind_dir }}</span><br><hr>
+    </div>
+  </div>
+</div>
+{% endblock %}

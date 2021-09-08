@@ -1,0 +1,150 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/1.2/css/weather-icons.min.css);
+body {
+  background: linear-gradient(0deg, #40ffe2 10%, #ff9475 90%);
+}
+.site {
+  display: flex;
+  flex-direction: column;
+}
+.site-header
+{
+  background-color:#26272b;
+  padding:5px 10px 5px;
+  line-height:24px;
+  color:#737373;
+  font-family: 'Open Sans';
+}
+.site-header h1
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.site-header a
+{
+  color:#737373;
+}
+.site-header a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+#weather_wrapper{
+  width: 600px;
+  margin-top: 1%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.weatherPic{
+  opacity: 90%;
+  width: 50%;
+  float: right;
+  border-radius:10px;
+  border: solid rgba(109, 109, 109, 0.13) 5px;
+}
+.weatherInfo{
+  width: 600px;
+  font-family: 'Open Sans';
+  font-weight: 300;
+  position: relative;
+  background-color: #ff9475;
+  margin-top: 70px;
+  margin-bottom: 5%;
+  flex: 1;
+}
+.weatherCard{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  flex: 1;
+  background-color: rgba(148, 252, 252, 0.28);
+}
+.weatherCard-form{
+  font-family: 'Open Sans';
+  font-weight: 600;
+}
+.city{
+  width: 600px;
+  height: 300px;
+  background: rgb(41, 41, 41);
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.paramTable{
+  width: 600px;
+  background: rgb(237, 237, 237);
+  margin: 0;
+  position: relative;
+  top: 0;
+  right: 0;
+}
+.location{
+  color: rgb(255, 255, 255);
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 30px;
+  display: block;
+}
+.param-icon{
+  font-family: weathericons;
+  font-size: 20px;
+  padding: 0 2px 0;
+  text-align: center;
+}
+.param-text {
+  font-family: 'Open Sans';
+  padding: 0 2px 0;
+}
+.param-value {
+  font-family: 'Open Sans';
+  padding: 0 2px 0;
+  float: right;
+  color: crimson;
+  font-weight: bold;
+  position: absolute;
+  right: 5px;
+}
+.table-info{
+  width: 600px;
+  height: 35px;
+  position: absolute;
+  top: 0;
+  padding-top:2px;
+  background: rgb(42, 178, 234);
+  font-family: 'Open Sans';
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+}
+.image-city{
+  width: 600px;
+  height: 250px;
+}
+.site-footer
+{
+  background-color:#26272b;
+  padding: 0px 5px 5px;
+  line-height:24px;
+  color:#737373;
+  font-family: 'Open Sans';
+  bottom: 0;
+}
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-footer h3
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  letter-spacing:2px
+}

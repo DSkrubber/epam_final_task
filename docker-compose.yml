@@ -1,0 +1,39 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    command: python app.py
+    ports:
+      - 5000:5000
+    volumes:
+      - db:/db
+  celery:
+    build: .
+    command: celery -A celery_task.daily_worker worker --loglevel=info
+    environment:
+      - CELERY_BROKER=amqp://guest:guest@rabbit:5672//
+    volumes:
+      - db:/db
+    depends_on:
+      - schedule
+      - rabbit
+      - web
+  schedule:
+    build: .
+    command: celery -A celery_task.daily_worker beat --max-interval 100000 --loglevel=info
+    environment:
+      - CELERY_BROKER=amqp://guest:guest@rabbit:5672//
+    depends_on:
+      - rabbit
+      - web
+  rabbit:
+    container_name: rabbit_weather
+    image: rabbitmq:3.9-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - 5672:5672
+      - 15672:15672
+volumes:
+  db:
